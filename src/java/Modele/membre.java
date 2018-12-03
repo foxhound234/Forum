@@ -54,5 +54,11 @@ public class membre {
 
     public membre() {
     }
+
+    public membre(String statut, String login, String mdp) {
+        this.statut = statut;
+        this.login = login;
+        this.mdp = mdp;
+    }
     
 }

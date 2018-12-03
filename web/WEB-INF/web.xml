@@ -8,6 +8,10 @@
         <servlet-name>Utilisateur</servlet-name>
         <servlet-class>Controlleur.Utilisateur</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Enregistrement</servlet-name>
+        <servlet-class>Controlleur.Enregistrement</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Admin</servlet-name>
         <url-pattern>/Admin</url-pattern>
@@ -16,9 +20,16 @@
         <servlet-name>Utilisateur</servlet-name>
         <url-pattern>/Utilisateur</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Enregistrement</servlet-name>
+        <url-pattern>/Enregistrement</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <welcome-file-list>
+        <welcome-file>Utilisateur</welcome-file>
+    </welcome-file-list>
 </web-app>
