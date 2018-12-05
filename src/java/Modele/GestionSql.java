@@ -19,7 +19,7 @@ public class GestionSql {
     {
     }  
     
-    public void InsererMembre(membre unMembre)
+    public void InsererMembre(Membre unMembre)
     {
          try
         {
@@ -32,5 +32,24 @@ public class GestionSql {
         {
             System.out.println("Erreur requete3 " + e.getMessage());
         }     
+    }
+        public  Membre VerifieConnexion(String login,String mdp) throws SQLException
+    {
+        
+         Membre unMembre=new Membre();
+                   
+         try
+        {
+            // On prévoit 2 connexions à la base
+              stmt1 = GestionBdd.connexionBdd(GestionBdd.TYPE_MYSQL, "forum","localhost", "root","");
+                String req="SELECT * FROM membre WHERE  login='"+login+"' AND mdp='"+mdp+"'";
+               ResultSet rs = GestionBdd.envoiRequeteLMD(stmt1,req);
+               unMembre=new Membre(rs.getInt("id"),rs.getString("statut"),rs.getString("login"),rs.getString("mdp")); 
+        }
+          catch (SQLException se)
+        {
+            System.out.println("Erreur SQL requete getLesClients : " + se.getMessage());
+        }
+          return  unMembre;      
     }
 }

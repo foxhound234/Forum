@@ -74,7 +74,7 @@ public class Enregistrement extends HttpServlet {
         String login=request.getParameter("Login");
         String Mdp = request.getParameter("mdp");
         String statut="U";
-        membre unMembre=new membre(statut, login,Mdp);
+        Membre unMembre=new Membre(statut, login,Mdp);
         GestionSql sql=new  GestionSql();
         sql.InsererMembre(unMembre);
     }
